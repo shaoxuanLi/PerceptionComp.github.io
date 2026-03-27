@@ -11,11 +11,13 @@
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
   <link rel="icon" href="./static/images/favicon.svg">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/index.js"></script>
 </head>
 <body>
@@ -53,7 +55,7 @@
           </div>
 
           <h1 class="title is-2 publication-title" style="color:white; line-height:1.25;">
-            PerceptionComp: A Video Benchmark for<br>Complex Perception-Centric Reasoning
+            <span class="pc-gradient-name">PerceptionComp</span>: A Video Benchmark for<br>Complex Perception-Centric Reasoning
           </h1>
 
           <div class="is-size-5 publication-authors" style="margin-top:24px;">
@@ -150,6 +152,26 @@
           <span class="pc-stat-label">Manual Annotation</span>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== TEASER ========== -->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <h2 class="title is-3 has-text-centered">What is PerceptionComp?</h2>
+      <h2 class="subtitle has-text-justified">
+        <strong>PerceptionComp</strong> is a video benchmark where answering requires <em>repeated visual evidence gathering</em> across multiple temporally separated segments.
+        No single frame or clip is sufficient &mdash; questions are designed so that human single-view accuracy drops to near chance level (<strong>18.97%</strong>),
+        while experts with unrestricted rewatching achieve <strong>100%</strong>. Current state-of-the-art MLLMs all fall below 50%, revealing a fundamental gap in perception-centric long-horizon reasoning.
+      </h2>
+      <figure class="image" style="margin:0 auto;">
+        <img src="pics/leaderboard.png" alt="PerceptionComp leaderboard overview" style="border-radius:10px; box-shadow:0 4px 24px rgba(0,0,0,0.13); display:block; margin:0 auto;"/>
+      </figure>
+      <p class="has-text-centered" style="margin-top:1rem; font-size:0.87rem; color:#64748b;">
+        Model accuracy on PerceptionComp. Best proprietary model (Gemini-3-Flash) reaches only 45.96%. All open-source models remain below 40%.
+      </p>
     </div>
   </div>
 </section>
@@ -497,10 +519,10 @@
       Questions span three difficulty levels (Level 1&#8211;3) across diverse video categories
     </p>
 
-    <div class="columns is-multiline">
+    <div id="example-carousel" class="carousel results-carousel">
 
       <!-- Ex 1: City Walk · Sequential · Level 3 -->
-      <div class="column is-half">
+      <div class="item pc-carousel-item">
         <div class="box pc-example-q">
           <div class="tags" style="margin-bottom:0.75rem; flex-wrap:wrap;">
             <span class="tag is-info">City Walk</span>
@@ -524,7 +546,7 @@
       </div>
 
       <!-- Ex 2: Variety Show · Sequential · Level 3 -->
-      <div class="column is-half">
+      <div class="item pc-carousel-item">
         <div class="box pc-example-q">
           <div class="tags" style="margin-bottom:0.75rem; flex-wrap:wrap;">
             <span class="tag is-warning">Variety Show</span>
@@ -549,7 +571,7 @@
       </div>
 
       <!-- Ex 3: Home Tour · Conjunctive · Level 1 -->
-      <div class="column is-half">
+      <div class="item pc-carousel-item">
         <div class="box pc-example-q">
           <div class="tags" style="margin-bottom:0.75rem; flex-wrap:wrap;">
             <span class="tag is-success">Home Tour</span>
@@ -575,7 +597,7 @@
       </div>
 
       <!-- Ex 4: Outdoor Tour · Conjunctive · Level 1 -->
-      <div class="column is-half">
+      <div class="item pc-carousel-item">
         <div class="box pc-example-q">
           <div class="tags" style="margin-bottom:0.75rem; flex-wrap:wrap;">
             <span class="tag" style="background:#f0fdf4; color:#15803d; border:1px solid #86efac;">Outdoor Tour</span>
@@ -606,7 +628,7 @@
 <!-- ========== LEADERBOARD ========== -->
 <section class="section" id="leaderboard">
   <div class="container is-max-widescreen">
-    <h2 class="title is-3 has-text-centered">Leaderboard</h2>
+    <h2 class="title is-3 has-text-centered"><span class="pc-fancy-title">Leaderboard</span></h2>
     <p class="subtitle has-text-centered" style="margin-bottom:2rem;">
       Accuracy (%) on PerceptionComp — 5-way multiple choice &nbsp;&#183;&nbsp; Chance level = 20%
     </p>

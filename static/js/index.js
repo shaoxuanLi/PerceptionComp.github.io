@@ -1,4 +1,15 @@
 $(document).ready(function() {
+  // Initialize example questions carousel (BLINK-style)
+  if (typeof bulmaCarousel !== 'undefined') {
+    bulmaCarousel.attach('.carousel', {
+      slidesToScroll: 1,
+      slidesToShow: 2,
+      loop: true,
+      infinite: true,
+      autoplay: false,
+    });
+  }
+
   // Mobile navbar burger toggle
   $(".navbar-burger").click(function() {
     $(".navbar-burger").toggleClass("is-active");
