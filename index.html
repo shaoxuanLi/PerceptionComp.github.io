@@ -48,10 +48,6 @@
       <div class="columns is-centered">
         <div class="column has-text-centered">
 
-          <div style="margin-bottom:18px;">
-            <span class="tag pc-venue-tag">CVPR 2026</span>
-          </div>
-
           <h1 class="title is-2 publication-title" style="color:white; line-height:1.25;">
             <span class="pc-gradient-name">PerceptionComp</span>: A Video Benchmark for<br>Complex Perception-Centric Reasoning
           </h1>
@@ -166,18 +162,147 @@
   </div>
 </section>
 
-<!-- ========== LEADERBOARD IMAGE ========== -->
-<section class="section pc-gray-section">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <h2 class="title is-3 has-text-centered">Model Performance Overview</h2>
-      <figure class="image" style="margin:0 auto;">
-        <img src="pics/leaderboard.png" alt="PerceptionComp leaderboard overview" style="border-radius:10px; box-shadow:0 4px 24px rgba(0,0,0,0.13); display:block; margin:0 auto; max-width:800px;"/>
-      </figure>
-      <p class="has-text-centered" style="margin-top:1rem; font-size:0.87rem; color:#64748b;">
-        Model accuracy on PerceptionComp. Best proprietary model (Gemini-3-Flash) reaches only 45.96%. All open-source models remain below 40%.
-      </p>
+<!-- ========== LEADERBOARD SECTION ========== -->
+<section class="section" id="leaderboard">
+  <div class="container is-max-widescreen">
+    <h2 class="title is-3 has-text-centered"><span class="pc-fancy-title">Model Performance Leaderboard</span></h2>
+    <p class="subtitle has-text-centered" style="margin-bottom:2rem;">
+      Accuracy (%) on PerceptionComp — 5-way multiple choice &nbsp;&#183;&nbsp; Chance level = 20%
+    </p>
+
+    <div class="table-container">
+      <table class="table is-bordered is-striped is-fullwidth" style="font-size:0.9rem;">
+        <thead>
+          <tr style="background:#1e293b; color:white;">
+            <th style="color:white; text-align:left;">Model</th>
+            <th style="color:white; text-align:center;">Size</th>
+            <th style="color:white; text-align:center;">Overall</th>
+            <th style="color:white; text-align:center;">Lv.1</th>
+            <th style="color:white; text-align:center;">Lv.2</th>
+            <th style="color:white; text-align:center;">Lv.3</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background:#f0f9ff;">
+            <td colspan="6" style="text-align:left; font-weight:700; color:#1d4ed8;">
+              <i class="fas fa-user"></i>&nbsp; Human Performance
+            </td>
+          </tr>
+          <tr>
+            <td>Expert (unrestricted rewatch)</td>
+            <td style="text-align:center;">—</td>
+            <td style="text-align:center; font-weight:700; color:#16a34a;">100.0%</td>
+            <td style="text-align:center;">100.0</td>
+            <td style="text-align:center;">100.0</td>
+            <td style="text-align:center;">100.0</td>
+          </tr>
+          <tr>
+            <td>Human (with rewatch)</td>
+            <td style="text-align:center;">—</td>
+            <td style="text-align:center; font-weight:700; color:#2563eb;">85.1%</td>
+            <td style="text-align:center;">90.2</td>
+            <td style="text-align:center;">86.0</td>
+            <td style="text-align:center;">72.3</td>
+          </tr>
+          <tr>
+            <td>Single-view Human (no rewatch)</td>
+            <td style="text-align:center;">—</td>
+            <td style="text-align:center; color:#dc2626;">19.0%</td>
+            <td style="text-align:center;">20.3</td>
+            <td style="text-align:center;">19.1</td>
+            <td style="text-align:center;">17.6</td>
+          </tr>
+
+          <tr style="background:#f3e8ff;">
+            <td colspan="6" style="text-align:left; font-weight:700; color:#9333ea;">
+              <i class="fas fa-lock"></i>&nbsp; Proprietary Models
+            </td>
+          </tr>
+          <tr style="background:#eff6ff;">
+            <td><strong>Gemini-3-Flash</strong> &#x1F451;</td>
+            <td style="text-align:center;">—</td>
+            <td style="text-align:center; font-weight:700; color:#1d4ed8;"><strong>45.96%</strong></td>
+            <td style="text-align:center;">43.8</td>
+            <td style="text-align:center;">47.3</td>
+            <td style="text-align:center;">47.9</td>
+          </tr>
+          <tr>
+            <td>Gemini-3-Pro</td>
+            <td style="text-align:center;">—</td>
+            <td style="text-align:center;">44.43%</td>
+            <td style="text-align:center;">45.1</td>
+            <td style="text-align:center;">45.5</td>
+            <td style="text-align:center;">40.7</td>
+          </tr>
+          <tr>
+            <td>Gemini-2.5-Pro</td>
+            <td style="text-align:center;">—</td>
+            <td style="text-align:center;">44.34%</td>
+            <td style="text-align:center;">44.6</td>
+            <td style="text-align:center;">44.2</td>
+            <td style="text-align:center;">44.0</td>
+          </tr>
+          <tr>
+            <td>GPT-o3</td>
+            <td style="text-align:center;">—</td>
+            <td style="text-align:center;">43.54%</td>
+            <td style="text-align:center;">43.1</td>
+            <td style="text-align:center;">44.0</td>
+            <td style="text-align:center;">43.5</td>
+          </tr>
+          <tr>
+            <td>Gemini-3.1-Pro</td>
+            <td style="text-align:center;">—</td>
+            <td style="text-align:center;">43.72%</td>
+            <td style="text-align:center;">45.8</td>
+            <td style="text-align:center;">45.1</td>
+            <td style="text-align:center;">36.4</td>
+          </tr>
+
+          <tr style="background:#f0fdf4;">
+            <td colspan="6" style="text-align:left; font-weight:700; color:#059669;">
+              <i class="fab fa-github"></i>&nbsp; Open-Source Models
+            </td>
+          </tr>
+          <tr>
+            <td>GLM-4.5V</td>
+            <td style="text-align:center;">106B</td>
+            <td style="text-align:center;">36.69%</td>
+            <td style="text-align:center;">39.1</td>
+            <td style="text-align:center;">34.4</td>
+            <td style="text-align:center;">36.6</td>
+          </tr>
+          <tr>
+            <td>Qwen3-VL</td>
+            <td style="text-align:center;">30B</td>
+            <td style="text-align:center;">34.38%</td>
+            <td style="text-align:center;">38.0</td>
+            <td style="text-align:center;">34.9</td>
+            <td style="text-align:center;">25.5</td>
+          </tr>
+          <tr>
+            <td>Qwen3-VL-Thinking</td>
+            <td style="text-align:center;">235B</td>
+            <td style="text-align:center;">38.20%</td>
+            <td style="text-align:center;">39.5</td>
+            <td style="text-align:center;">38.2</td>
+            <td style="text-align:center;">35.6</td>
+          </tr>
+          <tr>
+            <td>InternVL-3.5</td>
+            <td style="text-align:center;">8B</td>
+            <td style="text-align:center;">32.32%</td>
+            <td style="text-align:center;">34.8</td>
+            <td style="text-align:center;">31.5</td>
+            <td style="text-align:center;">30.6</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+
+    <p class="has-text-centered" style="margin-top:2rem; font-size:0.85rem; color:#64748b;">
+      &#x1F451; = best overall model &nbsp; | &nbsp; Chance level for 5-way MCQ is 20%
+    </p>
   </div>
 </section>
 
