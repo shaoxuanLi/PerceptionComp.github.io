@@ -13,8 +13,11 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
-  <link rel="icon" href="./static/images/favicon.svg">
-
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+<!-- m:尝试修改了一下icon，不确定是否成功，后续可以再调整 -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
   <script src="./static/js/bulma-carousel.min.js"></script>
@@ -111,7 +114,7 @@
               </a>
             </span>
           </div>
-
+<!-- m:这一段需要最后加一下链接 -->
         </div>
       </div>
     </div>
@@ -162,6 +165,11 @@
     <div class="hero-body">
       <h2 class="title is-3 has-text-centered">What is PerceptionComp?</h2>
       <h2 class="subtitle has-text-justified">
+        <br>
+        <figure class="image" style="margin:0 auto;">
+          <img src="pics/fig_teaser_eccv.png" alt="PerceptionComp leaderboard overview" style="border-radius:10px; box-shadow:0 4px 24px rgba(0,0,0,0.13); display:block; margin:0 auto;"/>
+        </figure>
+        <br>
         <strong>PerceptionComp</strong> is a video benchmark where answering requires <em>repeated visual evidence gathering</em> across multiple temporally separated segments.
         No single frame or clip is sufficient &mdash; questions are designed so that human single-view accuracy drops to near chance level (<strong>18.97%</strong>),
         while experts with unrestricted rewatching achieve <strong>100%</strong>. Current state-of-the-art MLLMs all fall below 50%, revealing a fundamental gap in perception-centric long-horizon reasoning.
