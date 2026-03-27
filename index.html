@@ -2,46 +2,25 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <meta name="description"
-        content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos.">
-  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+  <meta name="description" content="PerceptionComp: A fully manually annotated video benchmark for complex perception-centric reasoning. 1,114 five-choice questions over 279 high-complexity videos requiring long-horizon, multi-step perceptual reasoning.">
+  <meta name="keywords" content="PerceptionComp, Video Understanding, Multimodal LLM, Benchmark, Perception-Centric Reasoning, CVPR 2026, Video QA">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Nerfies: Deformable Neural Radiance Fields</title>
+  <title>PerceptionComp: A Video Benchmark for Complex Perception-Centric Reasoning</title>
 
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-
-    gtag('js', new Date());
-
-    gtag('config', 'G-PYVRSFMDRL');
-  </script>
-
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-        rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
   <link rel="stylesheet" href="./static/css/bulma.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
   <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-  <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
   <link rel="icon" href="./static/images/favicon.svg">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
-  <script src="./static/js/bulma-carousel.min.js"></script>
-  <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
 </head>
 <body>
 
+<!-- ========== NAVBAR ========== -->
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
@@ -51,438 +30,916 @@
     </a>
   </div>
   <div class="navbar-menu">
-    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-      <a class="navbar-item" href="https://keunhong.com">
-      <span class="icon">
-          <i class="fas fa-home"></i>
-      </span>
-      </a>
-
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          More Research
-        </a>
-        <div class="navbar-dropdown">
-          <a class="navbar-item" href="https://hypernerf.github.io">
-            HyperNeRF
-          </a>
-          <a class="navbar-item" href="https://nerfies.github.io">
-            Nerfies
-          </a>
-          <a class="navbar-item" href="https://latentfusion.github.io">
-            LatentFusion
-          </a>
-          <a class="navbar-item" href="https://photoshape.github.io">
-            PhotoShape
-          </a>
-        </div>
-      </div>
+    <div class="navbar-start" style="flex-grow:1; justify-content:center;">
+      <a class="navbar-item" href="#abstract">Abstract</a>
+      <a class="navbar-item" href="#benchmark">Benchmark</a>
+      <a class="navbar-item" href="#examples">Examples</a>
+      <a class="navbar-item" href="#leaderboard">Leaderboard</a>
+      <a class="navbar-item" href="#analysis">Analysis</a>
+      <a class="navbar-item" href="#bibtex">BibTeX</a>
     </div>
-
   </div>
 </nav>
 
-
-<section class="hero">
+<!-- ========== HERO ========== -->
+<section class="hero pc-hero">
   <div class="hero-body">
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Nerfies: Deformable Neural Radiance Fields</h1>
-          <div class="is-size-5 publication-authors">
-            <span class="author-block">
-              <a href="https://keunhong.com">Keunhong Park</a><sup>1</sup>,</span>
-            <span class="author-block">
-              <a href="https://utkarshsinha.com">Utkarsh Sinha</a><sup>2</sup>,</span>
-            <span class="author-block">
-              <a href="https://jonbarron.info">Jonathan T. Barron</a><sup>2</sup>,
+
+          <div style="margin-bottom:18px;">
+            <span class="tag pc-venue-tag">CVPR 2026</span>
+          </div>
+
+          <h1 class="title is-2 publication-title" style="color:white; line-height:1.25;">
+            PerceptionComp: A Video Benchmark for<br>Complex Perception-Centric Reasoning
+          </h1>
+
+          <div class="is-size-5 publication-authors" style="margin-top:24px;">
+            <span class="author-block"><a href="#" class="pc-author-link">Shaoxuan Li</a><sup>1*</sup>,</span>
+            <span class="author-block"><a href="#" class="pc-author-link">Zhixuan Zhao</a><sup>1*</sup>,</span>
+            <span class="author-block"><a href="#" class="pc-author-link">Hanze Deng</a><sup>1*</sup>,</span>
+            <span class="author-block"><a href="#" class="pc-author-link">Zirun Ma</a><sup>1*</sup>,</span>
+            <span class="author-block"><a href="#" class="pc-author-link">Shulin Tian</a><sup>3</sup>,</span>
+            <span class="author-block"><a href="#" class="pc-author-link">Zuyan Liu</a><sup>1</sup>,</span>
+            <span class="author-block"><a href="#" class="pc-author-link">Yushi Hu</a><sup>2</sup>,</span>
+            <span class="author-block"><a href="#" class="pc-author-link">Haoning Wu</a><sup>3</sup>,</span>
+            <span class="author-block"><a href="#" class="pc-author-link">Yuhao Dong</a><sup>3#</sup>,</span>
+            <span class="author-block"><a href="#" class="pc-author-link">Benlin Liu</a><sup>2#</sup>,</span>
+            <span class="author-block"><a href="#" class="pc-author-link">Ziwei Liu</a><sup>3&#8224;</sup>,</span>
+            <span class="author-block"><a href="#" class="pc-author-link">Ranjay Krishna</a><sup>2&#8224;</sup></span>
+          </div>
+
+          <div class="is-size-5 publication-authors" style="color:rgba(255,255,255,0.65); margin-top:10px;">
+            <span class="author-block"><sup>1</sup>Tsinghua University</span>
+            &nbsp;&nbsp;
+            <span class="author-block"><sup>2</sup>University of Washington</span>
+            &nbsp;&nbsp;
+            <span class="author-block"><sup>3</sup>Nanyang Technological University</span>
+          </div>
+
+          <div class="is-size-6" style="color:rgba(255,255,255,0.5); margin-top:8px;">
+            * Equal contribution &nbsp;&nbsp;&nbsp; # Project co-lead &nbsp;&nbsp;&nbsp; &#8224; Equal advising
+          </div>
+
+          <div class="publication-links" style="margin-top:28px;">
+            <span class="link-block">
+              <a href="#" class="external-link button is-normal is-rounded pc-link-btn">
+                <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                <span>Paper</span>
+              </a>
             </span>
-            <span class="author-block">
-              <a href="http://sofienbouaziz.com">Sofien Bouaziz</a><sup>2</sup>,
+            <span class="link-block">
+              <a href="#" class="external-link button is-normal is-rounded pc-link-btn">
+                <span class="icon"><i class="ai ai-arxiv"></i></span>
+                <span>arXiv</span>
+              </a>
             </span>
-            <span class="author-block">
-              <a href="https://www.danbgoldman.com">Dan B Goldman</a><sup>2</sup>,
+            <span class="link-block">
+              <a href="#" class="external-link button is-normal is-rounded pc-link-btn">
+                <span class="icon"><i class="fab fa-github"></i></span>
+                <span>Code</span>
+              </a>
             </span>
-            <span class="author-block">
-              <a href="https://homes.cs.washington.edu/~seitz/">Steven M. Seitz</a><sup>1,2</sup>,
-            </span>
-            <span class="author-block">
-              <a href="http://www.ricardomartinbrualla.com">Ricardo Martin-Brualla</a><sup>2</sup>
+            <span class="link-block">
+              <a href="#" class="external-link button is-normal is-rounded pc-link-btn">
+                <span class="icon"><i class="fas fa-database"></i></span>
+                <span>Dataset</span>
+              </a>
             </span>
           </div>
 
-          <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>University of Washington,</span>
-            <span class="author-block"><sup>2</sup>Google Research</span>
-          </div>
-
-          <div class="column has-text-centered">
-            <div class="publication-links">
-              <!-- PDF Link. -->
-              <span class="link-block">
-                <a href="https://arxiv.org/pdf/2011.12948"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
-                  </span>
-                  <span>Paper</span>
-                </a>
-              </span>
-              <span class="link-block">
-                <a href="https://arxiv.org/abs/2011.12948"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
-                </a>
-              </span>
-              <!-- Video Link. -->
-              <span class="link-block">
-                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-youtube"></i>
-                  </span>
-                  <span>Video</span>
-                </a>
-              </span>
-              <!-- Code Link. -->
-              <span class="link-block">
-                <a href="https://github.com/google/nerfies"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-github"></i>
-                  </span>
-                  <span>Code</span>
-                  </a>
-              </span>
-              <!-- Dataset Link. -->
-              <span class="link-block">
-                <a href="https://github.com/google/nerfies/releases/tag/0.1"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="far fa-images"></i>
-                  </span>
-                  <span>Data</span>
-                  </a>
-            </div>
-
-          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="hero teaser">
+<!-- ========== STATS BAR ========== -->
+<section class="pc-stats-section">
   <div class="container is-max-desktop">
-    <div class="hero-body">
-      <video id="teaser" autoplay muted loop playsinline height="100%">
-        <source src="./static/videos/teaser.mp4"
-                type="video/mp4">
-      </video>
-      <h2 class="subtitle has-text-centered">
-        <span class="dnerf">Nerfies</span> turns selfie videos from your phone into
-        free-viewpoint
-        portraits.
-      </h2>
-    </div>
-  </div>
-</section>
-
-
-<section class="hero is-light is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-steve">
-          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/steve.mp4"
-                    type="video/mp4">
-          </video>
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <div class="pc-stat-box">
+          <span class="pc-stat-number">1,114</span>
+          <span class="pc-stat-label">Five-Choice Questions</span>
         </div>
-        <div class="item item-chair-tp">
-          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/chair-tp.mp4"
-                    type="video/mp4">
-          </video>
+      </div>
+      <div class="column">
+        <div class="pc-stat-box">
+          <span class="pc-stat-number">279</span>
+          <span class="pc-stat-label">High-Complexity Videos</span>
         </div>
-        <div class="item item-shiba">
-          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/shiba.mp4"
-                    type="video/mp4">
-          </video>
+      </div>
+      <div class="column">
+        <div class="pc-stat-box">
+          <span class="pc-stat-number">7</span>
+          <span class="pc-stat-label">Video Categories</span>
         </div>
-        <div class="item item-fullbody">
-          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/fullbody.mp4"
-                    type="video/mp4">
-          </video>
+      </div>
+      <div class="column">
+        <div class="pc-stat-box">
+          <span class="pc-stat-number">10–20<span class="pc-stat-unit">min</span></span>
+          <span class="pc-stat-label">Per Question Annotation</span>
         </div>
-        <div class="item item-blueshirt">
-          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/blueshirt.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-mask">
-          <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/mask.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-coffee">
-          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/coffee.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-toby">
-          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/toby2.mp4"
-                    type="video/mp4">
-          </video>
+      </div>
+      <div class="column">
+        <div class="pc-stat-box">
+          <span class="pc-stat-number">100%</span>
+          <span class="pc-stat-label">Manual Annotation</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-
-<section class="section">
+<!-- ========== ABSTRACT ========== -->
+<section class="section" id="abstract">
   <div class="container is-max-desktop">
-    <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            We present the first method capable of photorealistically reconstructing a non-rigidly
-            deforming scene using photos/videos captured casually from mobile phones.
+            Deep video understanding requires long-horizon, perception-centric reasoning that repeatedly revisits a video to gather temporally distributed evidence. However, existing benchmarks are either relatively easy (perception-centric but often solvable after a single view) or logic-heavy with simplified visuals, and thus do not faithfully measure multimodal test-time thinking that depends on repeated perception.
           </p>
           <p>
-            Our approach augments neural radiance fields
-            (NeRF) by optimizing an
-            additional continuous volumetric deformation field that warps each observed point into a
-            canonical 5D NeRF.
-            We observe that these NeRF-like deformation fields are prone to local minima, and
-            propose a coarse-to-fine optimization method for coordinate-based models that allows for
-            more robust optimization.
-            By adapting principles from geometry processing and physical simulation to NeRF-like
-            models, we propose an elastic regularization of the deformation field that further
-            improves robustness.
+            We introduce <strong>PerceptionComp</strong>, a fully manually annotated benchmark designed so that <em>no single moment is sufficient</em>: answering requires evidence from multiple temporally separated segments under compositional constraints. PerceptionComp contains <strong>1,114 five-choice questions</strong> over <strong>279 high-scene-complexity videos</strong> spanning diverse domains. Videos are selected using automatic proxies for scene complexity (SAM2 instance counts and optical-flow magnitude), and each question requires <strong>10&#8211;20 minutes</strong> of annotation.
           </p>
           <p>
-            We show that <span class="dnerf">Nerfies</span> can turn casually captured selfie
-            photos/videos into deformable NeRF
-            models that allow for photorealistic renderings of the subject from arbitrary
-            viewpoints, which we dub <i>"nerfies"</i>. We evaluate our method by collecting data
-            using a
-            rig with two mobile phones that take time-synchronized photos, yielding train/validation
-            images of the same pose at different viewpoints. We show that our method faithfully
-            reconstructs non-rigidly deforming scenes and reproduces unseen views with high
-            fidelity.
+            Human evaluation confirms the intended difficulty: PerceptionComp requires substantially longer response times than prior benchmarks, and under a single-view setting (no rewatching) human accuracy drops to near chance (<strong>18.97%</strong>), while experts can reach <strong>100% accuracy</strong> with unrestricted rewatching and sufficient time. State-of-the-art MLLMs perform notably worse: the best model (Gemini-3-Flash) reaches only <strong>45.96%</strong> accuracy, and open-source MLLMs remain below 40%.
           </p>
         </div>
       </div>
     </div>
-    <!--/ Abstract. -->
-
-    <!-- Paper video. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Video</h2>
-        <div class="publication-video">
-          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
-                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        </div>
-      </div>
-    </div>
-    <!--/ Paper video. -->
   </div>
 </section>
 
-
-<section class="section">
+<!-- ========== WHY PERCEPTIONCOMP ========== -->
+<section class="section pc-gray-section">
   <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Why PerceptionComp?</h2>
+    <p class="subtitle is-5 has-text-centered" style="margin-bottom:2rem;">
+      Existing benchmarks fail to measure perception that requires <em>repeated visual information gathering</em>.
+    </p>
 
-    <div class="columns is-centered">
-
-      <!-- Visual Effects. -->
-      <div class="column">
-        <div class="content">
-          <h2 class="title is-3">Visual Effects</h2>
-          <p>
-            Using <i>nerfies</i> you can create fun visual effects. This Dolly zoom effect
-            would be impossible without nerfies since it would require going through a wall.
-          </p>
-          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/dollyzoom-stacked.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-      </div>
-      <!--/ Visual Effects. -->
-
-      <!-- Matting. -->
-      <div class="column">
-        <h2 class="title is-3">Matting</h2>
-        <div class="columns is-centered">
-          <div class="column content">
-            <p>
-              As a byproduct of our method, we can also solve the matting problem by ignoring
-              samples that fall outside of a bounding box during rendering.
-            </p>
-            <video id="matting-video" controls playsinline height="100%">
-              <source src="./static/videos/matting.mp4"
-                      type="video/mp4">
-            </video>
-          </div>
-
-        </div>
+    <!-- Benchmark Comparison Table -->
+    <div style="margin-bottom:3rem;">
+      <h3 class="title is-5 has-text-centered">Comparison with Prior Benchmarks</h3>
+      <div class="table-container">
+        <table class="table is-bordered is-hoverable is-fullwidth" style="font-size:0.9rem; text-align:center;">
+          <thead>
+            <tr style="background:#1e293b; color:white;">
+              <th style="color:white; text-align:left; min-width:170px;">Benchmark</th>
+              <th style="color:white;">Video Domain</th>
+              <th style="color:white;"># QA</th>
+              <th style="color:white;">Perception-Centric<br>Reasoning</th>
+              <th style="color:white;">Annotation</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="text-align:left;">MMVU</td>
+              <td>Educational videos</td><td>3,000</td>
+              <td><span class="pc-cross">&#10007;</span></td><td>Manual</td>
+            </tr>
+            <tr>
+              <td style="text-align:left;">VideoMME</td>
+              <td>YouTube videos</td><td>2,700</td>
+              <td><span class="pc-cross">&#10007;</span></td><td>Manual</td>
+            </tr>
+            <tr>
+              <td style="text-align:left;">VCR-Bench</td>
+              <td>Short films</td><td>1,034</td>
+              <td><span class="pc-cross">&#10007;</span></td><td>Manual</td>
+            </tr>
+            <tr>
+              <td style="text-align:left;">MINERVA</td>
+              <td>Mix</td><td>1,515</td>
+              <td><span class="pc-cross">&#10007;</span></td><td>Manual</td>
+            </tr>
+            <tr>
+              <td style="text-align:left;">VideoMMMU</td>
+              <td>Lectures</td><td>900</td>
+              <td><span class="pc-cross">&#10007;</span></td><td>Manual</td>
+            </tr>
+            <tr>
+              <td style="text-align:left;">Video-Holmes</td>
+              <td>Short films</td><td>1,834</td>
+              <td><span class="pc-cross">&#10007;</span></td><td>Automatic &amp; Manual</td>
+            </tr>
+            <tr style="background:#eff6ff;">
+              <td style="text-align:left; font-weight:700; color:#1d4ed8;">PerceptionComp (Ours)</td>
+              <td style="font-weight:700; color:#1d4ed8;">In-the-wild videos</td>
+              <td style="font-weight:700; color:#1d4ed8;">1,114</td>
+              <td><span class="pc-check">&#10003;</span></td>
+              <td style="font-weight:700; color:#1d4ed8;">Manual</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
-    <!--/ Matting. -->
 
-    <!-- Animation. -->
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Animation</h2>
+    <!-- Human Study: Timing + Accuracy -->
+    <div class="columns is-vcentered">
 
-        <!-- Interpolating. -->
-        <h3 class="title is-4">Interpolating states</h3>
-        <div class="content has-text-justified">
-          <p>
-            We can also animate the scene by interpolating the deformation latent codes of two input
-            frames. Use the slider here to linearly interpolate between the left frame and the right
-            frame.
-          </p>
-        </div>
-        <div class="columns is-vcentered interpolation-panel">
-          <div class="column is-3 has-text-centered">
-            <img src="./static/images/interpolate_start.jpg"
-                 class="interpolation-image"
-                 alt="Interpolate start reference image."/>
-            <p>Start Frame</p>
-          </div>
-          <div class="column interpolation-video-column">
-            <div id="interpolation-image-wrapper">
-              Loading...
+      <div class="column">
+        <h3 class="title is-5 has-text-centered">Average Human Answering Time</h3>
+        <div class="pc-bar-chart">
+          <div class="pc-bar-row">
+            <span class="pc-bar-label">Perception Test</span>
+            <div class="pc-bar-wrap">
+              <div class="pc-bar" style="width:5.6%;"></div>
+              <span class="pc-bar-val">8s</span>
             </div>
-            <input class="slider is-fullwidth is-large is-info"
-                   id="interpolation-slider"
-                   step="1" min="0" max="100" value="0" type="range">
           </div>
-          <div class="column is-3 has-text-centered">
-            <img src="./static/images/interpolate_end.jpg"
-                 class="interpolation-image"
-                 alt="Interpolation end reference image."/>
-            <p class="is-bold">End Frame</p>
+          <div class="pc-bar-row">
+            <span class="pc-bar-label">VideoMME</span>
+            <div class="pc-bar-wrap">
+              <div class="pc-bar" style="width:9%;"></div>
+              <span class="pc-bar-val">13s</span>
+            </div>
+          </div>
+          <div class="pc-bar-row">
+            <span class="pc-bar-label">VideoHolmes</span>
+            <div class="pc-bar-wrap">
+              <div class="pc-bar" style="width:18%;"></div>
+              <span class="pc-bar-val">26s</span>
+            </div>
+          </div>
+          <div class="pc-bar-row">
+            <span class="pc-bar-label">LongVideoBench</span>
+            <div class="pc-bar-wrap">
+              <div class="pc-bar" style="width:18.75%;"></div>
+              <span class="pc-bar-val">27s</span>
+            </div>
+          </div>
+          <div class="pc-bar-row">
+            <span class="pc-bar-label">Minerva</span>
+            <div class="pc-bar-wrap">
+              <div class="pc-bar" style="width:22.2%;"></div>
+              <span class="pc-bar-val">32s</span>
+            </div>
+          </div>
+          <div class="pc-bar-row">
+            <span class="pc-bar-label">VideoMMMU</span>
+            <div class="pc-bar-wrap">
+              <div class="pc-bar" style="width:45.1%;"></div>
+              <span class="pc-bar-val">65s</span>
+            </div>
+          </div>
+          <div class="pc-bar-row">
+            <span class="pc-bar-label pc-bar-label-hl">PerceptionComp</span>
+            <div class="pc-bar-wrap">
+              <div class="pc-bar pc-bar-hl" style="width:100%;"></div>
+              <span class="pc-bar-val pc-bar-val-hl">144s</span>
+            </div>
           </div>
         </div>
-        <br/>
-        <!--/ Interpolating. -->
-
-        <!-- Re-rendering. -->
-        <h3 class="title is-4">Re-rendering the input video</h3>
-        <div class="content has-text-justified">
-          <p>
-            Using <span class="dnerf">Nerfies</span>, you can re-render a video from a novel
-            viewpoint such as a stabilized camera by playing back the training deformations.
-          </p>
-        </div>
-        <div class="content has-text-centered">
-          <video id="replay-video"
-                 controls
-                 muted
-                 preload
-                 playsinline
-                 width="75%">
-            <source src="./static/videos/replay.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <!--/ Re-rendering. -->
-
+        <p class="has-text-centered" style="margin-top:10px; font-size:0.82rem; color:#64748b;">
+          &gt;11&#215; longer than VideoMME &nbsp;&#183;&nbsp; &gt;5&#215; longer than VideoMMMU
+        </p>
       </div>
-    </div>
-    <!--/ Animation. -->
 
-
-    <!-- Concurrent Work. -->
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Related Links</h2>
-
-        <div class="content has-text-justified">
-          <p>
-            There's a lot of excellent work that was introduced around the same time as ours.
-          </p>
-          <p>
-            <a href="https://arxiv.org/abs/2104.09125">Progressive Encoding for Neural Optimization</a> introduces an idea similar to our windowed position encoding for coarse-to-fine optimization.
-          </p>
-          <p>
-            <a href="https://www.albertpumarola.com/research/D-NeRF/index.html">D-NeRF</a> and <a href="https://gvv.mpi-inf.mpg.de/projects/nonrigid_nerf/">NR-NeRF</a>
-            both use deformation fields to model non-rigid scenes.
-          </p>
-          <p>
-            Some works model videos with a NeRF by directly modulating the density, such as <a href="https://video-nerf.github.io/">Video-NeRF</a>, <a href="https://www.cs.cornell.edu/~zl548/NSFF/">NSFF</a>, and <a href="https://neural-3d-video.github.io/">DyNeRF</a>
-          </p>
-          <p>
-            There are probably many more by the time you are reading this. Check out <a href="https://dellaert.github.io/NeRF/">Frank Dellart's survey on recent NeRF papers</a>, and <a href="https://github.com/yenchenlin/awesome-NeRF">Yen-Chen Lin's curated list of NeRF papers</a>.
-          </p>
+      <div class="column">
+        <h3 class="title is-5 has-text-centered">Accuracy Under Different Conditions</h3>
+        <div class="pc-accuracy-list">
+          <div class="pc-accuracy-card" style="border-left:4px solid #16a34a;">
+            <div class="pc-accuracy-num" style="color:#16a34a;">100%</div>
+            <div>
+              <div class="pc-accuracy-title">Expert (Unrestricted Rewatch)</div>
+              <div class="pc-accuracy-desc">Full time + can rewatch. All questions have unambiguous, unique answers.</div>
+            </div>
+          </div>
+          <div class="pc-accuracy-card" style="border-left:4px solid #2563eb;">
+            <div class="pc-accuracy-num" style="color:#2563eb;">85.10%</div>
+            <div>
+              <div class="pc-accuracy-title">Human (With Rewatch)</div>
+              <div class="pc-accuracy-desc">Ordinary participants may lose patience on complex multi-condition queries.</div>
+            </div>
+          </div>
+          <div class="pc-accuracy-card" style="border-left:4px solid #dc2626;">
+            <div class="pc-accuracy-num" style="color:#dc2626;">18.97%</div>
+            <div>
+              <div class="pc-accuracy-title">Single-View Human (No Rewatch)</div>
+              <div class="pc-accuracy-desc">Near chance level (20% for 5-way MCQ). Repeated perception is essential.</div>
+            </div>
+          </div>
+          <div class="pc-accuracy-card" style="border-left:4px solid #9333ea;">
+            <div class="pc-accuracy-num" style="color:#9333ea;">45.96%</div>
+            <div>
+              <div class="pc-accuracy-title">Best MLLM (Gemini-3-Flash)</div>
+              <div class="pc-accuracy-desc">State-of-the-art model. Open-source MLLMs all remain below 40%.</div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    <!--/ Concurrent Work. -->
 
+    </div>
   </div>
 </section>
 
+<!-- ========== BENCHMARK DESIGN ========== -->
+<section class="section" id="benchmark">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Benchmark Design</h2>
 
-<section class="section" id="BibTeX">
+    <!-- Pipeline -->
+    <div class="pc-pipeline" style="margin-bottom:3rem;">
+      <div class="pc-pipeline-step">
+        <div class="pc-pipeline-icon" style="background:#dbeafe; color:#2563eb;"><i class="fas fa-video fa-lg"></i></div>
+        <p class="pc-pipeline-label">Video Selection</p>
+        <p class="pc-pipeline-sub">SAM2 + optical flow complexity</p>
+      </div>
+      <div class="pc-pipeline-arrow"><i class="fas fa-arrow-right"></i></div>
+      <div class="pc-pipeline-step">
+        <div class="pc-pipeline-icon" style="background:#dcfce7; color:#16a34a;"><i class="fas fa-layer-group fa-lg"></i></div>
+        <p class="pc-pipeline-label">Subcondition Design</p>
+        <p class="pc-pipeline-sub">Semantic · Spatial · Temporal · Correspondence</p>
+      </div>
+      <div class="pc-pipeline-arrow"><i class="fas fa-arrow-right"></i></div>
+      <div class="pc-pipeline-step">
+        <div class="pc-pipeline-icon" style="background:#fce7f3; color:#db2777;"><i class="fas fa-puzzle-piece fa-lg"></i></div>
+        <p class="pc-pipeline-label">Question Assembly</p>
+        <p class="pc-pipeline-sub">Conjunctive or Sequential</p>
+      </div>
+      <div class="pc-pipeline-arrow"><i class="fas fa-arrow-right"></i></div>
+      <div class="pc-pipeline-step">
+        <div class="pc-pipeline-icon" style="background:#fef3c7; color:#d97706;"><i class="fas fa-check-double fa-lg"></i></div>
+        <p class="pc-pipeline-label">Annotation &amp; Verification</p>
+        <p class="pc-pipeline-sub">Dual-annotator check · 89% agreement</p>
+      </div>
+    </div>
+
+    <!-- Video Categories -->
+    <h3 class="title is-4" style="margin-bottom:1rem;">Video Categories</h3>
+    <p class="content">We select videos with high scene and object complexity across seven diverse real-world categories (2&#8211;10 min clips). Complexity is measured via <strong>SAM2 instance counts</strong> and <strong>optical-flow magnitude</strong>.</p>
+    <div class="columns is-multiline" style="margin-bottom:2.5rem;">
+      <div class="column is-one-third-tablet is-half-mobile">
+        <div class="pc-category-card">
+          <span class="icon is-large" style="color:#2563eb;"><i class="fas fa-city fa-2x"></i></span>
+          <p class="pc-category-name">City Walk Tours</p>
+          <p class="pc-category-desc">Dense pedestrian traffic, complex street scenes, frequent camera motion</p>
+        </div>
+      </div>
+      <div class="column is-one-third-tablet is-half-mobile">
+        <div class="pc-category-card">
+          <span class="icon is-large" style="color:#059669;"><i class="fas fa-shopping-bag fa-2x"></i></span>
+          <p class="pc-category-name">Shopping in Malls</p>
+          <p class="pc-category-desc">Crowded indoor environments with stores, signs, and many objects</p>
+        </div>
+      </div>
+      <div class="column is-one-third-tablet is-half-mobile">
+        <div class="pc-category-card">
+          <span class="icon is-large" style="color:#dc2626;"><i class="fas fa-running fa-2x"></i></span>
+          <p class="pc-category-name">Sports Competitions</p>
+          <p class="pc-category-desc">Fast motion, multiple athletes, dynamic scenes and scene transitions</p>
+        </div>
+      </div>
+      <div class="column is-one-third-tablet is-half-mobile">
+        <div class="pc-category-card">
+          <span class="icon is-large" style="color:#9333ea;"><i class="fas fa-home fa-2x"></i></span>
+          <p class="pc-category-name">Indoor Villa Tours</p>
+          <p class="pc-category-desc">Large indoor spaces with rich object arrangements across many rooms</p>
+        </div>
+      </div>
+      <div class="column is-one-third-tablet is-half-mobile">
+        <div class="pc-category-card">
+          <span class="icon is-large" style="color:#d97706;"><i class="fas fa-tv fa-2x"></i></span>
+          <p class="pc-category-name">Variety Shows</p>
+          <p class="pc-category-desc">Entertainment shows with multiple people, events, and stage changes</p>
+        </div>
+      </div>
+      <div class="column is-one-third-tablet is-half-mobile">
+        <div class="pc-category-card">
+          <span class="icon is-large" style="color:#0891b2;"><i class="fas fa-film fa-2x"></i></span>
+          <p class="pc-category-name">Movie Clips</p>
+          <p class="pc-category-desc">Film excerpts with complex narratives and rich visual detail</p>
+        </div>
+      </div>
+      <div class="column is-one-third-tablet is-half-mobile">
+        <div class="pc-category-card">
+          <span class="icon is-large" style="color:#7c3aed;"><i class="fas fa-gamepad fa-2x"></i></span>
+          <p class="pc-category-name">Game Livestreams</p>
+          <p class="pc-category-desc">Screen-captured games with naturally occurring clutter and dynamics</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Perceptual Skills -->
+    <h3 class="title is-4" style="margin-bottom:1rem;">Perceptual Skills</h3>
+    <p class="content">Each question combines subconditions probing distinct skills. Solving a question requires their coordinated use, not any single narrow competence.</p>
+    <div class="columns" style="margin-bottom:2.5rem;">
+      <div class="column">
+        <div class="pc-skill-card" style="border-top:3px solid #2563eb;">
+          <h4 class="title is-6" style="color:#2563eb;"><i class="fas fa-eye"></i>&nbsp; Semantic Understanding</h4>
+          <p>Recognize object categories, attributes (shape, color, material), and higher-level relations such as roles or interactions.</p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="pc-skill-card" style="border-top:3px solid #059669;">
+          <h4 class="title is-6" style="color:#059669;"><i class="fas fa-map-marked-alt"></i>&nbsp; Spatial Understanding</h4>
+          <p>Reason about scene layout and relative geometry — left/right, front/behind, near/far, occlusion, and 3D spatial relations.</p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="pc-skill-card" style="border-top:3px solid #dc2626;">
+          <h4 class="title is-6" style="color:#dc2626;"><i class="fas fa-clock"></i>&nbsp; Temporal Understanding</h4>
+          <p>Follow motion patterns, localize events in time (before/after a reference event), and reason about event ordering.</p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="pc-skill-card" style="border-top:3px solid #9333ea;">
+          <h4 class="title is-6" style="color:#9333ea;"><i class="fas fa-link"></i>&nbsp; Correspondence</h4>
+          <p>Match instances across time and views — tracking objects across shots, part&#8211;whole matching, re-identification after occlusion.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Compositional Design -->
+    <h3 class="title is-4" style="margin-bottom:1rem;">Compositional Question Design</h3>
+    <div class="columns">
+      <div class="column">
+        <div class="box" style="border-left:5px solid #2563eb; height:100%;">
+          <h4 class="title is-5"><span style="color:#2563eb;">Conjunctive</span> Composition</h4>
+          <p>All subconditions refer to the <strong>same target</strong>, forming an &#8220;and&#8221;-style conjunction. Each condition narrows the candidate set; only the full conjunction uniquely determines the answer, preventing shortcuts.</p>
+          <div class="pc-example-box" style="margin-top:1rem;">
+            <p style="font-size:0.88rem; color:#374151; line-height:1.6;">
+              <strong>Example:</strong> Find a pedestrian who is:
+              &#9312; male, &#9313; wearing a two-colored short-sleeved shirt, &#9314; wearing white shorts.
+              <em>At the moment he is closest to the nearest lamppost, which store is he closest to?</em>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="box" style="border-left:5px solid #dc2626; height:100%;">
+          <h4 class="title is-5"><span style="color:#dc2626;">Sequential</span> Composition</h4>
+          <p>Subconditions must be resolved <strong>in order</strong>. Later subconditions depend on intermediate entities established earlier, inducing a multi-hop chain where early errors propagate throughout.</p>
+          <div class="pc-example-box" style="margin-top:1rem;">
+            <p style="font-size:0.88rem; color:#374151; line-height:1.6;">
+              <strong>Example:</strong> &#9312; As the camera walks past HUBLOT, &#9313; a woman in a black dress walks on the street. &#9314; To her left, person A walks in the opposite direction. &#9315; Person A passes someone standing still.
+              <em>What was that stationary person doing?</em>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== EXAMPLE QUESTIONS ========== -->
+<section class="section pc-gray-section" id="examples">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Example Questions</h2>
+    <p class="subtitle has-text-centered" style="margin-bottom:2rem;">
+      Questions span three difficulty levels (Level 1&#8211;3) across diverse video categories
+    </p>
+
+    <div class="columns is-multiline">
+
+      <!-- Ex 1: City Walk · Sequential · Level 3 -->
+      <div class="column is-half">
+        <div class="box pc-example-q">
+          <div class="tags" style="margin-bottom:0.75rem; flex-wrap:wrap;">
+            <span class="tag is-info">City Walk</span>
+            <span class="tag is-danger">Level 3</span>
+            <span class="tag pc-tag-seq">Sequential</span>
+          </div>
+          <p class="pc-q-text">
+            <span class="pc-sc">&#9312;</span> Locate the store with a giant glass cube entrance.<br>
+            <span class="pc-sc">&#9313;</span> On the street next to this cube, there are two food trucks of the same color.<br>
+            <span class="pc-sc">&#9314;</span> When passing the food truck closer to the cube, an SUV of the same color appears on the right.
+          </p>
+          <p class="pc-q-main">Q: What is the color of the vest of the cyclist passing this SUV at that moment?</p>
+          <div class="pc-choices">
+            <span class="pc-choice">A. Blue</span>
+            <span class="pc-choice">B. Red</span>
+            <span class="pc-choice pc-correct">C. Yellow-green &#10003;</span>
+            <span class="pc-choice">D. Solid green</span>
+            <span class="pc-choice">E. Solid yellow</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ex 2: Variety Show · Sequential · Level 3 -->
+      <div class="column is-half">
+        <div class="box pc-example-q">
+          <div class="tags" style="margin-bottom:0.75rem; flex-wrap:wrap;">
+            <span class="tag is-warning">Variety Show</span>
+            <span class="tag is-danger">Level 3</span>
+            <span class="tag pc-tag-seq">Sequential</span>
+          </div>
+          <p class="pc-q-text">
+            Locate person A:
+            <span class="pc-sc">&#9312;</span> black shirt &amp; pants,
+            <span class="pc-sc">&#9313;</span> green hat,
+            <span class="pc-sc">&#9314;</span> shirt says &#8220;ISHOWSPEED&#8221;.
+          </p>
+          <p class="pc-q-main">Q: When the protagonist in a white shirt is talking to another person in a white shirt, A appears in the frame. From A&#8217;s perspective, what color is the backpack of the person closest to his right?</p>
+          <div class="pc-choices">
+            <span class="pc-choice">A. Red</span>
+            <span class="pc-choice pc-correct">B. Blue &#10003;</span>
+            <span class="pc-choice">C. White</span>
+            <span class="pc-choice">D. Black</span>
+            <span class="pc-choice">E. Green</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ex 3: Home Tour · Conjunctive · Level 1 -->
+      <div class="column is-half">
+        <div class="box pc-example-q">
+          <div class="tags" style="margin-bottom:0.75rem; flex-wrap:wrap;">
+            <span class="tag is-success">Home Tour</span>
+            <span class="tag is-info">Level 1</span>
+            <span class="tag pc-tag-conj">Conjunctive</span>
+          </div>
+          <p class="pc-q-text">
+            Among the chairs, for one that:
+            <span class="pc-sc">&#9312;</span> has white color,
+            <span class="pc-sc">&#9313;</span> is located outdoors,
+            <span class="pc-sc">&#9314;</span> has the entrance to indoors directly behind a person sitting on it,
+            <span class="pc-sc">&#9315;</span> there are multiple identical chairs meeting these conditions.
+          </p>
+          <p class="pc-q-main">Q: How many chairs are there?</p>
+          <div class="pc-choices">
+            <span class="pc-choice">A. 2</span>
+            <span class="pc-choice">B. 3</span>
+            <span class="pc-choice pc-correct">C. 4 &#10003;</span>
+            <span class="pc-choice">D. 5</span>
+            <span class="pc-choice">E. 6</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ex 4: Outdoor Tour · Conjunctive · Level 1 -->
+      <div class="column is-half">
+        <div class="box pc-example-q">
+          <div class="tags" style="margin-bottom:0.75rem; flex-wrap:wrap;">
+            <span class="tag" style="background:#f0fdf4; color:#15803d; border:1px solid #86efac;">Outdoor Tour</span>
+            <span class="tag is-info">Level 1</span>
+            <span class="tag pc-tag-conj">Conjunctive</span>
+          </div>
+          <p class="pc-q-text">
+            <span class="pc-sc">&#9312;</span> Object A: trash can ~human height, left side of park.<br>
+            <span class="pc-sc">&#9313;</span> Object B: newsstand slightly taller than a person, right side of park.<br>
+            <span class="pc-sc">&#9314;</span> Object C: a building at front-left of the park&#8217;s iron fence gate.<br>
+            Let Shape 1 = the roof shape of Object B.
+          </p>
+          <p class="pc-q-main">Q: Which of the following objects also has Shape 1 as its roof shape? (Internet search required for comparisons)</p>
+          <div class="pc-choices">
+            <span class="pc-choice">A. Beijing Tiananmen Gate</span>
+            <span class="pc-choice">B. Object C</span>
+            <span class="pc-choice">C. Eiffel Tower</span>
+            <span class="pc-choice">D. Pantheon</span>
+            <span class="pc-choice pc-correct">E. Object A &#10003;</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== LEADERBOARD ========== -->
+<section class="section" id="leaderboard">
+  <div class="container is-max-widescreen">
+    <h2 class="title is-3 has-text-centered">Leaderboard</h2>
+    <p class="subtitle has-text-centered" style="margin-bottom:2rem;">
+      Accuracy (%) on PerceptionComp — 5-way multiple choice &nbsp;&#183;&nbsp; Chance level = 20%
+    </p>
+
+    <div class="table-container">
+      <table class="table is-bordered is-hoverable is-fullwidth pc-leaderboard">
+        <thead>
+          <tr>
+            <th rowspan="2" style="vertical-align:middle; min-width:175px;">Model</th>
+            <th rowspan="2" style="vertical-align:middle; text-align:center; white-space:nowrap;">Size</th>
+            <th colspan="7" style="text-align:center;">Accuracy by Category</th>
+            <th colspan="3" style="text-align:center;">Accuracy by Difficulty</th>
+            <th rowspan="2" class="pc-overall-th" style="vertical-align:middle; text-align:center;">Overall</th>
+          </tr>
+          <tr>
+            <th class="pc-sub-th">Outdoor</th>
+            <th class="pc-sub-th">Shopping</th>
+            <th class="pc-sub-th">Sport</th>
+            <th class="pc-sub-th">Home</th>
+            <th class="pc-sub-th">Show</th>
+            <th class="pc-sub-th">Movie</th>
+            <th class="pc-sub-th">Game</th>
+            <th class="pc-sub-th">Lv.1</th>
+            <th class="pc-sub-th">Lv.2</th>
+            <th class="pc-sub-th">Lv.3</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr class="pc-section-hdr"><td colspan="12"><i class="fas fa-user"></i>&nbsp; Human Performance</td></tr>
+          <tr class="pc-human">
+            <td>Expert (unrestricted rewatch)</td><td class="pc-c">&#8212;</td>
+            <td class="pc-c">100.0</td><td class="pc-c">100.0</td><td class="pc-c">100.0</td><td class="pc-c">100.0</td><td class="pc-c">100.0</td><td class="pc-c">100.0</td><td class="pc-c">100.0</td>
+            <td class="pc-c">100.0</td><td class="pc-c">100.0</td><td class="pc-c">100.0</td>
+            <td class="pc-overall pc-c"><strong>100.0</strong></td>
+          </tr>
+          <tr class="pc-human">
+            <td>Human (with rewatch)</td><td class="pc-c">&#8212;</td>
+            <td class="pc-c">81.3</td><td class="pc-c">86.8</td><td class="pc-c">87.6</td><td class="pc-c">86.7</td><td class="pc-c">87.3</td><td class="pc-c">88.0</td><td class="pc-c">87.1</td>
+            <td class="pc-c">90.2</td><td class="pc-c">86.0</td><td class="pc-c">72.3</td>
+            <td class="pc-overall pc-c"><strong>85.1</strong></td>
+          </tr>
+          <tr class="pc-human">
+            <td>Single-view Human (no rewatch)</td><td class="pc-c">&#8212;</td>
+            <td class="pc-c">19.4</td><td class="pc-c">17.8</td><td class="pc-c">20.6</td><td class="pc-c">18.2</td><td class="pc-c">21.1</td><td class="pc-c">17.0</td><td class="pc-c">18.9</td>
+            <td class="pc-c">20.3</td><td class="pc-c">19.1</td><td class="pc-c">17.6</td>
+            <td class="pc-overall pc-c"><strong>19.0</strong></td>
+          </tr>
+
+          <tr class="pc-section-hdr"><td colspan="12"><i class="fas fa-lock"></i>&nbsp; Proprietary Models</td></tr>
+          <tr class="pc-best-row">
+            <td>Gemini-3-Flash &#x1F451;</td><td class="pc-c">&#8212;</td>
+            <td class="pc-c">45.3</td><td class="pc-c">45.2</td><td class="pc-c">38.3</td><td class="pc-c">43.0</td><td class="pc-c">59.7</td><td class="pc-c">52.0</td><td class="pc-c">48.4</td>
+            <td class="pc-c">43.8</td><td class="pc-c">47.3</td><td class="pc-c">47.9</td>
+            <td class="pc-overall pc-c pc-best-score"><strong>45.96</strong></td>
+          </tr>
+          <tr>
+            <td>Gemini-3-Pro</td><td class="pc-c">&#8212;</td>
+            <td class="pc-c">42.2</td><td class="pc-c">42.1</td><td class="pc-c">40.4</td><td class="pc-c">37.5</td><td class="pc-c">60.4</td><td class="pc-c">48.0</td><td class="pc-c">61.3</td>
+            <td class="pc-c">45.1</td><td class="pc-c">45.5</td><td class="pc-c">40.7</td>
+            <td class="pc-overall pc-c">44.43</td>
+          </tr>
+          <tr>
+            <td>Gemini-2.5-Pro</td><td class="pc-c">&#8212;</td>
+            <td class="pc-c">45.8</td><td class="pc-c">45.2</td><td class="pc-c">32.6</td><td class="pc-c">42.2</td><td class="pc-c">52.4</td><td class="pc-c">52.0</td><td class="pc-c">58.1</td>
+            <td class="pc-c">44.6</td><td class="pc-c">44.2</td><td class="pc-c">44.0</td>
+            <td class="pc-overall pc-c">44.34</td>
+          </tr>
+          <tr>
+            <td>Seed-2.0-Pro</td><td class="pc-c">&#8212;</td>
+            <td class="pc-c">43.7</td><td class="pc-c">47.7</td><td class="pc-c">30.6</td><td class="pc-c">47.7</td><td class="pc-c">51.7</td><td class="pc-c">40.0</td><td class="pc-c">71.0</td>
+            <td class="pc-c">48.2</td><td class="pc-c">45.5</td><td class="pc-c">33.5</td>
+            <td class="pc-overall pc-c">44.34</td>
+          </tr>
+          <tr>
+            <td>Gemini-3.1-Pro</td><td class="pc-c">&#8212;</td>
+            <td class="pc-c">39.9</td><td class="pc-c">44.2</td><td class="pc-c">39.9</td><td class="pc-c">43.0</td><td class="pc-c">56.4</td><td class="pc-c">48.0</td><td class="pc-c">51.6</td>
+            <td class="pc-c">45.8</td><td class="pc-c">45.1</td><td class="pc-c">36.4</td>
+            <td class="pc-overall pc-c">43.72</td>
+          </tr>
+          <tr>
+            <td>GPT-o3</td><td class="pc-c">&#8212;</td>
+            <td class="pc-c">43.2</td><td class="pc-c">46.7</td><td class="pc-c">32.6</td><td class="pc-c">44.5</td><td class="pc-c">50.3</td><td class="pc-c">56.0</td><td class="pc-c">48.4</td>
+            <td class="pc-c">43.1</td><td class="pc-c">44.0</td><td class="pc-c">43.5</td>
+            <td class="pc-overall pc-c">43.54</td>
+          </tr>
+          <tr>
+            <td>GPT-5.2</td><td class="pc-c">&#8212;</td>
+            <td class="pc-c">43.0</td><td class="pc-c">44.2</td><td class="pc-c">27.5</td><td class="pc-c">38.3</td><td class="pc-c">49.0</td><td class="pc-c">48.0</td><td class="pc-c">38.7</td>
+            <td class="pc-c">44.4</td><td class="pc-c">38.1</td><td class="pc-c">38.8</td>
+            <td class="pc-overall pc-c">40.75</td>
+          </tr>
+          <tr>
+            <td>Gemini-2.5-Flash</td><td class="pc-c">&#8212;</td>
+            <td class="pc-c">39.4</td><td class="pc-c">41.1</td><td class="pc-c">24.4</td><td class="pc-c">39.8</td><td class="pc-c">47.7</td><td class="pc-c">44.0</td><td class="pc-c">32.3</td>
+            <td class="pc-c">42.0</td><td class="pc-c">35.9</td><td class="pc-c">34.9</td>
+            <td class="pc-overall pc-c">38.15</td>
+          </tr>
+          <tr>
+            <td>GPT-5</td><td class="pc-c">&#8212;</td>
+            <td class="pc-c">26.6</td><td class="pc-c">47.2</td><td class="pc-c">29.5</td><td class="pc-c">40.6</td><td class="pc-c">49.7</td><td class="pc-c">56.0</td><td class="pc-c">38.7</td>
+            <td class="pc-c">40.2</td><td class="pc-c">36.3</td><td class="pc-c">28.7</td>
+            <td class="pc-overall pc-c">36.45</td>
+          </tr>
+          <tr>
+            <td>GPT-4.1</td><td class="pc-c">&#8212;</td>
+            <td class="pc-c">26.1</td><td class="pc-c">46.7</td><td class="pc-c">27.5</td><td class="pc-c">28.9</td><td class="pc-c">45.0</td><td class="pc-c">52.0</td><td class="pc-c">48.4</td>
+            <td class="pc-c">37.3</td><td class="pc-c">34.8</td><td class="pc-c">24.4</td>
+            <td class="pc-overall pc-c">34.02</td>
+          </tr>
+          <tr>
+            <td>GPT-4o-latest</td><td class="pc-c">&#8212;</td>
+            <td class="pc-c">30.2</td><td class="pc-c">36.0</td><td class="pc-c">25.4</td><td class="pc-c">32.8</td><td class="pc-c">40.9</td><td class="pc-c">48.0</td><td class="pc-c">29.0</td>
+            <td class="pc-c">35.0</td><td class="pc-c">30.6</td><td class="pc-c">29.7</td>
+            <td class="pc-overall pc-c">32.50</td>
+          </tr>
+
+          <tr class="pc-section-hdr"><td colspan="12"><i class="fab fa-github"></i>&nbsp; Open-Source Instruct Models</td></tr>
+          <tr>
+            <td>GLM-4.5V</td><td class="pc-c">106B</td>
+            <td class="pc-c">36.6</td><td class="pc-c">37.6</td><td class="pc-c">30.8</td><td class="pc-c">28.1</td><td class="pc-c">51.0</td><td class="pc-c">52.0</td><td class="pc-c">22.6</td>
+            <td class="pc-c">39.1</td><td class="pc-c">34.4</td><td class="pc-c">36.6</td>
+            <td class="pc-overall pc-c">36.69</td>
+          </tr>
+          <tr>
+            <td>Qwen3-VL</td><td class="pc-c">30B</td>
+            <td class="pc-c">32.5</td><td class="pc-c">42.6</td><td class="pc-c">20.2</td><td class="pc-c">31.3</td><td class="pc-c">48.3</td><td class="pc-c">27.0</td><td class="pc-c">45.2</td>
+            <td class="pc-c">38.0</td><td class="pc-c">34.9</td><td class="pc-c">25.5</td>
+            <td class="pc-overall pc-c">34.38</td>
+          </tr>
+          <tr>
+            <td>Qwen3-VL</td><td class="pc-c">8B</td>
+            <td class="pc-c">34.5</td><td class="pc-c">33.5</td><td class="pc-c">30.1</td><td class="pc-c">29.7</td><td class="pc-c">45.6</td><td class="pc-c">52.0</td><td class="pc-c">38.7</td>
+            <td class="pc-c">34.6</td><td class="pc-c">34.6</td><td class="pc-c">33.0</td>
+            <td class="pc-overall pc-c">34.06</td>
+          </tr>
+          <tr>
+            <td>Qwen3-VL</td><td class="pc-c">235B</td>
+            <td class="pc-c">39.6</td><td class="pc-c">36.0</td><td class="pc-c">23.8</td><td class="pc-c">32.0</td><td class="pc-c">40.3</td><td class="pc-c">23.0</td><td class="pc-c">0.0</td>
+            <td class="pc-c">35.6</td><td class="pc-c">34.0</td><td class="pc-c">30.8</td>
+            <td class="pc-overall pc-c">34.02</td>
+          </tr>
+          <tr>
+            <td>InternVL-3.5</td><td class="pc-c">8B</td>
+            <td class="pc-c">31.2</td><td class="pc-c">35.0</td><td class="pc-c">28.0</td><td class="pc-c">25.8</td><td class="pc-c">41.6</td><td class="pc-c">48.0</td><td class="pc-c">38.7</td>
+            <td class="pc-c">34.8</td><td class="pc-c">31.5</td><td class="pc-c">30.6</td>
+            <td class="pc-overall pc-c">32.32</td>
+          </tr>
+          <tr>
+            <td>Qwen2.5-VL</td><td class="pc-c">72B</td>
+            <td class="pc-c">33.0</td><td class="pc-c">35.5</td><td class="pc-c">19.7</td><td class="pc-c">23.4</td><td class="pc-c">45.0</td><td class="pc-c">20.0</td><td class="pc-c">41.9</td>
+            <td class="pc-c">34.8</td><td class="pc-c">29.1</td><td class="pc-c">28.7</td>
+            <td class="pc-overall pc-c">31.33</td>
+          </tr>
+          <tr>
+            <td>Qwen2.5-VL</td><td class="pc-c">7B</td>
+            <td class="pc-c">26.3</td><td class="pc-c">24.9</td><td class="pc-c">13.5</td><td class="pc-c">18.0</td><td class="pc-c">26.9</td><td class="pc-c">20.0</td><td class="pc-c">22.6</td>
+            <td class="pc-c">24.1</td><td class="pc-c">21.4</td><td class="pc-c">22.6</td>
+            <td class="pc-overall pc-c">22.73</td>
+          </tr>
+
+          <tr class="pc-section-hdr"><td colspan="12"><i class="fas fa-brain"></i>&nbsp; Open-Source Thinking Models</td></tr>
+          <tr>
+            <td>Qwen3-VL-Thinking</td><td class="pc-c">235B</td>
+            <td class="pc-c">38.9</td><td class="pc-c">41.1</td><td class="pc-c">30.6</td><td class="pc-c">33.6</td><td class="pc-c">49.0</td><td class="pc-c">43.0</td><td class="pc-c">22.6</td>
+            <td class="pc-c">39.5</td><td class="pc-c">38.2</td><td class="pc-c">35.6</td>
+            <td class="pc-overall pc-c">38.20</td>
+          </tr>
+          <tr>
+            <td>Qwen3-VL-Thinking</td><td class="pc-c">30B</td>
+            <td class="pc-c">39.1</td><td class="pc-c">36.0</td><td class="pc-c">26.9</td><td class="pc-c">25.8</td><td class="pc-c">46.3</td><td class="pc-c">38.0</td><td class="pc-c">32.3</td>
+            <td class="pc-c">35.7</td><td class="pc-c">37.1</td><td class="pc-c">32.7</td>
+            <td class="pc-overall pc-c">35.68</td>
+          </tr>
+          <tr>
+            <td>Qwen3-VL-Thinking</td><td class="pc-c">8B</td>
+            <td class="pc-c">33.3</td><td class="pc-c">58.4</td><td class="pc-c">38.6</td><td class="pc-c">26.2</td><td class="pc-c">64.8</td><td class="pc-c">29.0</td><td class="pc-c">38.5</td>
+            <td class="pc-c">36.1</td><td class="pc-c">32.8</td><td class="pc-c">32.1</td>
+            <td class="pc-overall pc-c">33.82</td>
+          </tr>
+          <tr>
+            <td>VideoChat-R1</td><td class="pc-c">7B</td>
+            <td class="pc-c">31.4</td><td class="pc-c">29.7</td><td class="pc-c">19.2</td><td class="pc-c">22.9</td><td class="pc-c">33.1</td><td class="pc-c">26.0</td><td class="pc-c">27.5</td>
+            <td class="pc-c">29.4</td><td class="pc-c">27.0</td><td class="pc-c">28.2</td>
+            <td class="pc-overall pc-c">28.63</td>
+          </tr>
+          <tr>
+            <td>Video-R1</td><td class="pc-c">7B</td>
+            <td class="pc-c">28.3</td><td class="pc-c">27.2</td><td class="pc-c">16.4</td><td class="pc-c">20.1</td><td class="pc-c">30.2</td><td class="pc-c">23.0</td><td class="pc-c">24.9</td>
+            <td class="pc-c">26.6</td><td class="pc-c">24.4</td><td class="pc-c">25.4</td>
+            <td class="pc-overall pc-c">26.27</td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+    <p class="has-text-centered" style="margin-top:1.5rem; font-size:0.85rem; color:#64748b;">
+      Chance level for 5-way MCQ is 20%. &#x1F451; = best overall model across all evaluated systems.
+    </p>
+  </div>
+</section>
+
+<!-- ========== ANALYSIS ========== -->
+<section class="section pc-gray-section" id="analysis">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Analysis</h2>
+    <p class="subtitle is-5 has-text-centered" style="margin-bottom:2rem;">
+      PerceptionComp is sensitive to both perception budget (input frames) and reasoning budget (thinking tokens)
+    </p>
+
+    <div class="columns" style="margin-bottom:2.5rem;">
+      <div class="column">
+        <div class="box" style="height:100%;">
+          <h3 class="title is-5"><i class="fas fa-images" style="color:#2563eb;"></i>&nbsp; Effect of Input Frames</h3>
+          <p>Accuracy improves monotonically with more frames. Denser sampling captures more relevant moments and provides richer visual evidence for entity tracking.</p>
+          <table class="table is-narrow is-fullwidth" style="margin-top:0.75rem; font-size:0.88rem;">
+            <thead>
+              <tr><th>Model</th><th class="has-text-centered">16 frames</th><th class="has-text-centered">32 frames</th><th class="has-text-centered">50&#8211;64 frames</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>GPT-o3</td><td class="has-text-centered">34.0%</td><td class="has-text-centered">38.6%</td><td class="has-text-centered"><strong>43.5%</strong></td></tr>
+              <tr><td>Qwen3-VL-8B</td><td class="has-text-centered">27.0%</td><td class="has-text-centered">29.2%</td><td class="has-text-centered"><strong>34.8%</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="column">
+        <div class="box" style="height:100%;">
+          <h3 class="title is-5"><i class="fas fa-brain" style="color:#dc2626;"></i>&nbsp; Effect of Thinking Budget</h3>
+          <p>Larger thinking-token budgets consistently improve accuracy (Gemini-2.5-Flash). More tokens help maintain intermediate hypotheses and follow multi-step chains.</p>
+          <table class="table is-narrow is-fullwidth" style="margin-top:0.75rem; font-size:0.88rem;">
+            <thead>
+              <tr><th>Thinking Budget</th><th class="has-text-centered">Accuracy</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>1,024 tokens</td><td class="has-text-centered">37.2%</td></tr>
+              <tr><td>2,048 tokens</td><td class="has-text-centered">38.6%</td></tr>
+              <tr><td>4,096 tokens</td><td class="has-text-centered">39.4%</td></tr>
+              <tr><td>8,192 tokens</td><td class="has-text-centered"><strong>40.4%</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="title is-4 has-text-centered" style="margin-bottom:1.5rem;">Key Findings</h3>
+    <div class="columns is-multiline">
+      <div class="column is-half">
+        <div class="pc-finding-card">
+          <div class="pc-finding-icon" style="background:#dbeafe; color:#2563eb;"><i class="fas fa-robot"></i></div>
+          <div>
+            <p style="font-weight:700; margin-bottom:4px;">Language Reasoning &#8800; Perceptual Reasoning</p>
+            <p style="font-size:0.88rem; color:#4b5563;">Stronger language-side thinking does not automatically improve perception-driven video reasoning. Qwen3-VL thinking variants sometimes underperform their instruction-tuned counterparts when perceptual evidence is misread.</p>
+          </div>
+        </div>
+      </div>
+      <div class="column is-half">
+        <div class="pc-finding-card">
+          <div class="pc-finding-icon" style="background:#dcfce7; color:#16a34a;"><i class="fas fa-chart-line"></i></div>
+          <div>
+            <p style="font-weight:700; margin-bottom:4px;">Test-Time Reasoning Helps (+11%)</p>
+            <p style="font-size:0.88rem; color:#4b5563;">GPT-o3 surpasses GPT-4o by 11.04%; Gemini-2.5-Pro exceeds Gemini-2.5-Flash by 6.19%. Reasoning is beneficial but far from closing the gap to human-level performance.</p>
+          </div>
+        </div>
+      </div>
+      <div class="column is-half">
+        <div class="pc-finding-card">
+          <div class="pc-finding-icon" style="background:#fce7f3; color:#db2777;"><i class="fas fa-map-marker-alt"></i></div>
+          <div>
+            <p style="font-weight:700; margin-bottom:4px;">Spatial Understanding is the Bottleneck</p>
+            <p style="font-size:0.88rem; color:#4b5563;">60% of mid-chain failures are attributed to violated spatial subconditions. Models anchor on objects matching identity keywords but violating critical spatial or temporal constraints.</p>
+          </div>
+        </div>
+      </div>
+      <div class="column is-half">
+        <div class="pc-finding-card">
+          <div class="pc-finding-icon" style="background:#fef3c7; color:#d97706;"><i class="fas fa-link"></i></div>
+          <div>
+            <p style="font-weight:700; margin-bottom:4px;">Mid-Chain Collapse (Peak at Step 3: 40%)</p>
+            <p style="font-size:0.88rem; color:#4b5563;">Once an intermediate entity is wrong, the remaining chain drifts from ground truth while staying internally coherent &#8212; especially severe for sequential questions where later conditions depend on earlier results.</p>
+          </div>
+        </div>
+      </div>
+      <div class="column is-half">
+        <div class="pc-finding-card">
+          <div class="pc-finding-icon" style="background:#f3e8ff; color:#9333ea;"><i class="fas fa-grip-horizontal"></i></div>
+          <div>
+            <p style="font-weight:700; margin-bottom:4px;">Frontier Models Cluster in the Mid-40s</p>
+            <p style="font-size:0.88rem; color:#4b5563;">Gemini-3 variants and GPT-o3 all cluster around 43&#8211;46% despite different architectures, suggesting a fundamental bottleneck in perception-centric long-horizon reasoning.</p>
+          </div>
+        </div>
+      </div>
+      <div class="column is-half">
+        <div class="pc-finding-card">
+          <div class="pc-finding-icon" style="background:#ecfdf5; color:#059669;"><i class="fas fa-expand-arrows-alt"></i></div>
+          <div>
+            <p style="font-weight:700; margin-bottom:4px;">Scale Alone Does Not Solve It</p>
+            <p style="font-size:0.88rem; color:#4b5563;">Qwen3-VL 235B &#8776; Qwen3-VL 8B &#8776; 34% overall. The benchmark requires reliable perceptual extraction under clutter, not merely larger generic capacity.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== BIBTEX ========== -->
+<section class="section" id="bibtex">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@article{park2021nerfies,
-  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
-  title     = {Nerfies: Deformable Neural Radiance Fields},
-  journal   = {ICCV},
-  year      = {2021},
+    <pre><code>@inproceedings{li2026perceptioncomp,
+  title     = {{PerceptionComp}: A Video Benchmark for Complex Perception-Centric Reasoning},
+  author    = {Li, Shaoxuan and Zhao, Zhixuan and Deng, Hanze and Ma, Zirun and
+               Tian, Shulin and Liu, Zuyan and Hu, Yushi and Wu, Haoning and
+               Dong, Yuhao and Liu, Benlin and Liu, Ziwei and Krishna, Ranjay},
+  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  year      = {2026}
 }</code></pre>
   </div>
 </section>
 
-
+<!-- ========== FOOTER ========== -->
 <footer class="footer">
-  <div class="container">
-    <div class="content has-text-centered">
-      <a class="icon-link"
-         href="./static/videos/nerfies_paper.pdf">
-        <i class="fas fa-file-pdf"></i>
-      </a>
-      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
-        <i class="fab fa-github"></i>
-      </a>
-    </div>
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-          <p>
-            This website is licensed under a <a rel="license"
-                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-          <p>
-            This means you are free to borrow the <a
-              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
-            we just ask that you link back to this page in the footer.
-            Please remember to remove the analytics code included in the header of the website which
-            you do not want on your website.
-          </p>
-        </div>
-      </div>
-    </div>
+  <div class="content has-text-centered">
+    <p>
+      <strong>PerceptionComp</strong> &nbsp;&#183;&nbsp; CVPR 2026
+      &nbsp;&#183;&nbsp;
+      Tsinghua University, University of Washington, Nanyang Technological University
+    </p>
+    <p style="margin-top:8px; font-size:0.85rem; color:#94a3b8;">
+      Website template adapted from <a href="https://github.com/nerfies/nerfies.github.io" style="color:#94a3b8;">Nerfies</a>.
+      Licensed under <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" style="color:#94a3b8;">CC BY-SA 4.0</a>.
+    </p>
   </div>
 </footer>
 
