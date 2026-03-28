@@ -580,7 +580,107 @@ pre {
   margin: 0 auto 1.75rem;
 }
 
-/* ---- Examples Carousel ---- */
+/* ---- Author superscripts ---- */
+.publication-authors sup {
+  color: white;
+}
+
+/* ---- Compact category chips ---- */
+.pc-category-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.pc-category-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 14px;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  font-size: 0.84rem;
+  font-weight: 500;
+  color: #374151;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  white-space: nowrap;
+}
+
+/* ---- Demo image carousel ---- */
+.pc-demo-carousel {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pc-demo-viewport {
+  flex: 1;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.pc-demo-track {
+  display: flex;
+  transition: transform 0.35s ease;
+}
+
+.pc-demo-slide {
+  min-width: 100%;
+  box-sizing: border-box;
+}
+
+.pc-demo-nav {
+  background: #1e293b;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  line-height: 1;
+}
+
+.pc-demo-nav:hover:not(:disabled) {
+  background: #2563eb;
+}
+
+.pc-demo-nav:disabled {
+  background: #cbd5e1;
+  cursor: default;
+}
+
+.pc-demo-dots {
+  text-align: center;
+  margin-top: 14px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.pc-demo-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #cbd5e1;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  display: inline-block;
+}
+
+.pc-demo-dot-active {
+  background: #2563eb;
+  transform: scale(1.25);
+}
+
+/* ---- Examples Carousel (legacy) ---- */
 .results-carousel {
   overflow: hidden;
 }

@@ -14,8 +14,7 @@
   <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
   <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.bulma.min.css">
-  <!-- Empty favicon -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'></svg>">
+  <link rel="icon" type="image/png" href="pics/perception_icon.png">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
   <script src="./static/js/bulma-carousel.min.js"></script>
@@ -57,19 +56,19 @@
             <span class="pc-gradient-name">PerceptionComp</span>: A Video Benchmark for<br>Complex Perception-Centric Reasoning
           </h1>
 
-          <div class="is-size-5 publication-authors" style="margin-top:24px;">
-            <span class="author-block"><a href="#" class="pc-author-link">Shaoxuan Li</a><sup>1*</sup>,</span>
-            <span class="author-block"><a href="#" class="pc-author-link">Zhixuan Zhao</a><sup>1*</sup>,</span>
-            <span class="author-block"><a href="#" class="pc-author-link">Hanze Deng</a><sup>1*</sup>,</span>
-            <span class="author-block"><a href="#" class="pc-author-link">Zirun Ma</a><sup>1*</sup>,</span>
-            <span class="author-block"><a href="#" class="pc-author-link">Shulin Tian</a><sup>3</sup>,</span>
-            <span class="author-block"><a href="#" class="pc-author-link">Zuyan Liu</a><sup>1</sup>,</span>
-            <span class="author-block"><a href="#" class="pc-author-link">Yushi Hu</a><sup>2</sup>,</span>
-            <span class="author-block"><a href="#" class="pc-author-link">Haoning Wu</a><sup>3</sup>,</span>
-            <span class="author-block"><a href="#" class="pc-author-link">Yuhao Dong</a><sup>3#</sup>,</span>
-            <span class="author-block"><a href="#" class="pc-author-link">Benlin Liu</a><sup>2#</sup>,</span>
-            <span class="author-block"><a href="#" class="pc-author-link">Ziwei Liu</a><sup>3&#8224;</sup>,</span>
-            <span class="author-block"><a href="#" class="pc-author-link">Ranjay Krishna</a><sup>2&#8224;</sup></span>
+          <div class="is-size-5 publication-authors" style="margin-top:24px; color:rgba(255,255,255,0.9);">
+            <span class="author-block"><a href="#" class="pc-author-link">Shaoxuan Li</a><sup style="color:white;">1*</sup>,</span>
+            <span class="author-block"><a href="#" class="pc-author-link">Zhixuan Zhao</a><sup style="color:white;">1*</sup>,</span>
+            <span class="author-block"><a href="#" class="pc-author-link">Hanze Deng</a><sup style="color:white;">1*</sup>,</span>
+            <span class="author-block"><a href="#" class="pc-author-link">Zirun Ma</a><sup style="color:white;">1*</sup>,</span>
+            <span class="author-block"><a href="#" class="pc-author-link">Shulin Tian</a><sup style="color:white;">3</sup>,</span>
+            <span class="author-block"><a href="#" class="pc-author-link">Zuyan Liu</a><sup style="color:white;">1</sup>,</span>
+            <span class="author-block"><a href="#" class="pc-author-link">Yushi Hu</a><sup style="color:white;">2</sup>,</span>
+            <span class="author-block"><a href="#" class="pc-author-link">Haoning Wu</a><sup style="color:white;">3</sup>,</span>
+            <span class="author-block"><a href="#" class="pc-author-link">Yuhao Dong</a><sup style="color:white;">3#</sup>,</span>
+            <span class="author-block"><a href="#" class="pc-author-link">Benlin Liu</a><sup style="color:white;">2#</sup>,</span>
+            <span class="author-block"><a href="#" class="pc-author-link">Ziwei Liu</a><sup style="color:white;">3&#8224;</sup>,</span>
+            <span class="author-block"><a href="#" class="pc-author-link">Ranjay Krishna</a><sup style="color:white;">2&#8224;</sup></span>
           </div>
 
           <div class="is-size-5 publication-authors" style="color:rgba(255,255,255,0.65); margin-top:10px;">
@@ -98,13 +97,13 @@
               </a>
             </span>
             <span class="link-block">
-              <a href="#" class="external-link button is-normal is-rounded pc-link-btn">
+              <a href="https://github.com/hrinnnn/PerceptionComp" class="external-link button is-normal is-rounded pc-link-btn">
                 <span class="icon"><i class="fab fa-github"></i></span>
                 <span>Code</span>
               </a>
             </span>
             <span class="link-block">
-              <a href="#" class="external-link button is-normal is-rounded pc-link-btn">
+              <a href="https://huggingface.co/datasets/hrinnnn/PerceptionComp" class="external-link button is-normal is-rounded pc-link-btn">
                 <span class="icon"><i class="fas fa-database"></i></span>
                 <span>Dataset</span>
               </a>
@@ -274,39 +273,80 @@
 <!-- ========== EXAMPLE DEMOS ========== -->
 <section class="section" id="examples">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Example Demonstrations</h2>
+    <h2 class="title is-3 has-text-centered">Sample Demonstrations</h2>
     <p class="subtitle has-text-centered" style="margin-bottom:2rem;">
       Sample analysis from PerceptionComp videos
     </p>
-    
-    <div class="columns is-multiline">
-      <div class="column is-half">
-        <figure class="image">
-          <img src="pics/demo1.png" alt="Demo Example 1" style="border-radius:10px; box-shadow:0 4px 24px rgba(0,0,0,0.13);"/>
-        </figure>
-        <p class="has-text-centered" style="margin-top:1rem; font-size:0.85rem; color:#64748b;">Example 1</p>
+
+    <div class="pc-demo-carousel">
+      <button id="pcDemoPrev" class="pc-demo-nav" onclick="pcDemoMove(-1)">&#10094;</button>
+      <div class="pc-demo-viewport">
+        <div class="pc-demo-track" id="pcDemoTrack">
+          <div class="pc-demo-slide">
+            <figure class="image"><img src="pics/demo1.png" alt="Demo 1" style="border-radius:10px; box-shadow:0 4px 24px rgba(0,0,0,0.13);"/></figure>
+            <p class="has-text-centered" style="margin-top:0.75rem; font-size:0.85rem; color:#64748b;">Example 1 / 7</p>
+          </div>
+          <div class="pc-demo-slide">
+            <figure class="image"><img src="pics/demo2.png" alt="Demo 2" style="border-radius:10px; box-shadow:0 4px 24px rgba(0,0,0,0.13);"/></figure>
+            <p class="has-text-centered" style="margin-top:0.75rem; font-size:0.85rem; color:#64748b;">Example 2 / 7</p>
+          </div>
+          <div class="pc-demo-slide">
+            <figure class="image"><img src="pics/demo3.png" alt="Demo 3" style="border-radius:10px; box-shadow:0 4px 24px rgba(0,0,0,0.13);"/></figure>
+            <p class="has-text-centered" style="margin-top:0.75rem; font-size:0.85rem; color:#64748b;">Example 3 / 7</p>
+          </div>
+          <div class="pc-demo-slide">
+            <figure class="image"><img src="pics/demo4.png" alt="Demo 4" style="border-radius:10px; box-shadow:0 4px 24px rgba(0,0,0,0.13);"/></figure>
+            <p class="has-text-centered" style="margin-top:0.75rem; font-size:0.85rem; color:#64748b;">Example 4 / 7</p>
+          </div>
+          <div class="pc-demo-slide">
+            <figure class="image"><img src="pics/demo5.png" alt="Demo 5" style="border-radius:10px; box-shadow:0 4px 24px rgba(0,0,0,0.13);"/></figure>
+            <p class="has-text-centered" style="margin-top:0.75rem; font-size:0.85rem; color:#64748b;">Example 5 / 7</p>
+          </div>
+          <div class="pc-demo-slide">
+            <figure class="image"><img src="pics/demo6.png" alt="Demo 6" style="border-radius:10px; box-shadow:0 4px 24px rgba(0,0,0,0.13);"/></figure>
+            <p class="has-text-centered" style="margin-top:0.75rem; font-size:0.85rem; color:#64748b;">Example 6 / 7</p>
+          </div>
+          <div class="pc-demo-slide">
+            <figure class="image"><img src="pics/demo7.png" alt="Demo 7" style="border-radius:10px; box-shadow:0 4px 24px rgba(0,0,0,0.13);"/></figure>
+            <p class="has-text-centered" style="margin-top:0.75rem; font-size:0.85rem; color:#64748b;">Example 7 / 7</p>
+          </div>
+        </div>
       </div>
-      <div class="column is-half">
-        <figure class="image">
-          <img src="pics/demo2.png" alt="Demo Example 2" style="border-radius:10px; box-shadow:0 4px 24px rgba(0,0,0,0.13);"/>
-        </figure>
-        <p class="has-text-centered" style="margin-top:1rem; font-size:0.85rem; color:#64748b;">Example 2</p>
-      </div>
-      <div class="column is-half">
-        <figure class="image">
-          <img src="pics/demo3.png" alt="Demo Example 3" style="border-radius:10px; box-shadow:0 4px 24px rgba(0,0,0,0.13);"/>
-        </figure>
-        <p class="has-text-centered" style="margin-top:1rem; font-size:0.85rem; color:#64748b;">Example 3</p>
-      </div>
-      <div class="column is-half">
-        <figure class="image">
-          <img src="pics/demo4.png" alt="Demo Example 4" style="border-radius:10px; box-shadow:0 4px 24px rgba(0,0,0,0.13);"/>
-        </figure>
-        <p class="has-text-centered" style="margin-top:1rem; font-size:0.85rem; color:#64748b;">Example 4</p>
-      </div>
+      <button id="pcDemoNext" class="pc-demo-nav" onclick="pcDemoMove(1)">&#10095;</button>
     </div>
+
+    <div class="pc-demo-dots" id="pcDemoDots"></div>
   </div>
 </section>
+
+<script>
+(function() {
+  var idx = 0;
+  var total = 7;
+  function updateCarousel() {
+    document.getElementById('pcDemoTrack').style.transform = 'translateX(-' + (idx * 100) + '%)';
+    document.getElementById('pcDemoPrev').disabled = idx === 0;
+    document.getElementById('pcDemoNext').disabled = idx === total - 1;
+    var dots = document.querySelectorAll('.pc-demo-dot');
+    dots.forEach(function(d, i) { d.classList.toggle('pc-demo-dot-active', i === idx); });
+  }
+  window.pcDemoMove = function(dir) {
+    idx = Math.max(0, Math.min(total - 1, idx + dir));
+    updateCarousel();
+  };
+  document.addEventListener('DOMContentLoaded', function() {
+    var dotsEl = document.getElementById('pcDemoDots');
+    for (var i = 0; i < total; i++) {
+      var d = document.createElement('span');
+      d.className = 'pc-demo-dot' + (i === 0 ? ' pc-demo-dot-active' : '');
+      d.setAttribute('data-i', i);
+      d.onclick = (function(j) { return function() { idx = j; updateCarousel(); }; })(i);
+      dotsEl.appendChild(d);
+    }
+    updateCarousel();
+  });
+})();
+</script>
 
 <!-- ========== BENCHMARK INTRODUCTION ========== -->
 <section class="section" id="benchmark-intro">
@@ -341,58 +381,16 @@
     </div>
 
     <!-- Video Categories -->
-    <h3 class="title is-4" style="margin-bottom:1rem;">Video Categories</h3>
-    <p class="content">We select videos with high scene and object complexity across seven diverse real-world categories (2–10 min clips). Complexity is measured via <strong>SAM2 instance counts</strong> and <strong>optical-flow magnitude</strong>.</p>
-    <div class="columns is-multiline" style="margin-bottom:2.5rem;">
-      <div class="column is-one-third-tablet is-half-mobile">
-        <div class="pc-category-card">
-          <span class="icon is-large" style="color:#2563eb;"><i class="fas fa-city fa-2x"></i></span>
-          <p class="pc-category-name">City Walk Tours</p>
-          <p class="pc-category-desc">Dense pedestrian traffic, complex street scenes, frequent camera motion</p>
-        </div>
-      </div>
-      <div class="column is-one-third-tablet is-half-mobile">
-        <div class="pc-category-card">
-          <span class="icon is-large" style="color:#059669;"><i class="fas fa-shopping-bag fa-2x"></i></span>
-          <p class="pc-category-name">Shopping in Malls</p>
-          <p class="pc-category-desc">Crowded indoor environments with stores, signs, and many objects</p>
-        </div>
-      </div>
-      <div class="column is-one-third-tablet is-half-mobile">
-        <div class="pc-category-card">
-          <span class="icon is-large" style="color:#dc2626;"><i class="fas fa-running fa-2x"></i></span>
-          <p class="pc-category-name">Sports Competitions</p>
-          <p class="pc-category-desc">Fast motion, multiple athletes, dynamic scenes and scene transitions</p>
-        </div>
-      </div>
-      <div class="column is-one-third-tablet is-half-mobile">
-        <div class="pc-category-card">
-          <span class="icon is-large" style="color:#9333ea;"><i class="fas fa-home fa-2x"></i></span>
-          <p class="pc-category-name">Indoor Villa Tours</p>
-          <p class="pc-category-desc">Large indoor spaces with rich object arrangements across many rooms</p>
-        </div>
-      </div>
-      <div class="column is-one-third-tablet is-half-mobile">
-        <div class="pc-category-card">
-          <span class="icon is-large" style="color:#d97706;"><i class="fas fa-tv fa-2x"></i></span>
-          <p class="pc-category-name">Variety Shows</p>
-          <p class="pc-category-desc">Entertainment shows with multiple people, events, and stage changes</p>
-        </div>
-      </div>
-      <div class="column is-one-third-tablet is-half-mobile">
-        <div class="pc-category-card">
-          <span class="icon is-large" style="color:#0891b2;"><i class="fas fa-film fa-2x"></i></span>
-          <p class="pc-category-name">Movie Clips</p>
-          <p class="pc-category-desc">Film excerpts with complex narratives and rich visual detail</p>
-        </div>
-      </div>
-      <div class="column is-one-third-tablet is-half-mobile">
-        <div class="pc-category-card">
-          <span class="icon is-large" style="color:#7c3aed;"><i class="fas fa-gamepad fa-2x"></i></span>
-          <p class="pc-category-name">Game Livestreams</p>
-          <p class="pc-category-desc">Screen-captured games with naturally occurring clutter and dynamics</p>
-        </div>
-      </div>
+    <h3 class="title is-4" style="margin-bottom:0.75rem;">Video Categories</h3>
+    <p class="content" style="margin-bottom:1rem;">Seven diverse real-world categories (2–10 min clips), selected via <strong>SAM2 instance counts</strong> and <strong>optical-flow magnitude</strong>.</p>
+    <div class="pc-category-chips" style="margin-bottom:2.5rem;">
+      <div class="pc-category-chip"><span style="color:#2563eb;"><i class="fas fa-city"></i></span><span>City Walk Tours</span></div>
+      <div class="pc-category-chip"><span style="color:#059669;"><i class="fas fa-shopping-bag"></i></span><span>Shopping in Malls</span></div>
+      <div class="pc-category-chip"><span style="color:#dc2626;"><i class="fas fa-running"></i></span><span>Sports Competitions</span></div>
+      <div class="pc-category-chip"><span style="color:#9333ea;"><i class="fas fa-home"></i></span><span>Indoor Villa Tours</span></div>
+      <div class="pc-category-chip"><span style="color:#d97706;"><i class="fas fa-tv"></i></span><span>Variety Shows</span></div>
+      <div class="pc-category-chip"><span style="color:#0891b2;"><i class="fas fa-film"></i></span><span>Movie Clips</span></div>
+      <div class="pc-category-chip"><span style="color:#7c3aed;"><i class="fas fa-gamepad"></i></span><span>Game Livestreams</span></div>
     </div>
 
     <!-- Perceptual Skills -->
